@@ -22,8 +22,7 @@ public:
 private:
     // prevents Logger copy and creation
     Logger();
-    Logger(const Logger&) {}
-    Logger & operator=(const Logger&) {}
+    Logger(const Logger&) = delete;
 
     static void closeLog();
     ofstream fo_;
@@ -41,10 +40,10 @@ void Logger::closeLog() {
 }
 
 void func1() {
-  Logger::instance().report("func1 Report");  
+    Logger::instance().report("func1 Report");  
 }
 void func2() {
-  Logger::instance().report("func2 Report");  
+    Logger::instance().report("func2 Report");  
 }
 
 int main() {
